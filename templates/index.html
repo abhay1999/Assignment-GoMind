@@ -9,12 +9,6 @@
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
-        <label for="roll_no">Roll No.:</label>
-        <input type="text" id="roll_no" name="roll_no" required><br><br>
-
-        <label for="batch">Batch:</label>
-        <input type="text" id="batch" name="batch" required><br><br>
-
         <label for="college">College:</label>
         <input type="text" id="college" name="college" required><br><br>
         
@@ -25,15 +19,11 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>Roll No.</th>
-            <th>Batch</th>
             <th>College</th>
         </tr>
         {% for student in students %}
             <tr>
                 <td>{{ student.name }}</td>
-                <td>{{ student.roll_no }}</td>
-                <td>{{ student.batch }}</td>
                 <td>{{ student.college }}</td>
 
             </tr>
