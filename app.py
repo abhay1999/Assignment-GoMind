@@ -18,14 +18,17 @@ def index():
         name = request.form['name']
         college = request.form['college']
         
-        student = Student(name=name, college=college)
-        db.session.add(student)
-        db.session.commit()
+        with app.app_context():
+            student = Student(name=name, college=college)
+            db.session.add(student)
+            db.session.commit()
         
-    students = Student.query.all()
+    with app.app_context():
+        students = Student.query.all()
     return render_template('index.html', students=students)
 
 
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run()
